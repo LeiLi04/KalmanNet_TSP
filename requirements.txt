@@ -1,6 +1,8 @@
-matplotlib==3.3.4
-numpy==1.20.1
-pyParticleEst==1.1.4
+numpy>=1.22
 scipy==1.8.1
-seaborn==0.11.1
-torch==1.10.1
+matplotlib>=3.5,<3.8
+seaborn==0.11.2
+pyParticleEst==1.1.4
+torch==1.13.1
+torchvision==0.14.1
+torchaudio==0.13.1

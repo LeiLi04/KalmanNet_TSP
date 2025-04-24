@@ -11,6 +11,10 @@ from scipy.signal import find_peaks
 
 # Legend
 Klegend = ["Unsupervised KalmanNet - Train", "Unsupervised KalmanNet - Validation", "Unsupervised KalmanNet - Test", "Kalman Filter"]
+#RTSNet 是一种结合了递归贝叶斯滤波理论与深度学习结构的神经网络架构，主要用于时间序列估计、状态追踪与信号恢复问题，特别是在有噪声的动态系统中。
+#RTSNet 的名字来源于 Rauch–Tung–Striebel (RTS) 滤波器，这是卡尔曼滤波的一种扩展形式，用于 平滑（smoothing）：
+#卡尔曼滤波（Kalman Filter）：前向估计当前状态（基于过去的观测）。
+#RTS 滤波器：在卡尔曼滤波的基础上，结合未来的观测，进行 后向优化，提高估计精度。
 RTSlegend = ["RTSNet - Train", "RTSNet - Validation", "RTSNet - Test", "RTS Smoother","Kalman Filter"]
 ERTSlegend = ["RTSNet - Train","RTSNet - Validation", "RTSNet - Test", "RTS","EKF"]
 error_evol = ["KNet Empirical Error","KNet Covariance Trace","KF Empirical Error","KF Covariance Trace","KNet Error Deviation","EKF Error Deviation"]
@@ -19,11 +23,19 @@ KColor = ['-ro','darkorange','k-', 'b-','g-']
 RTSColor = ['red','darkorange','g-', 'b-']
 
 class Plot_KF:
-    
+    #constructor
     def __init__(self, folderName, modelName):
         self.folderName = folderName
         self.modelName = modelName
 
+    '''
+    args:
+        N_Epochs_plt：绘图的训练轮数
+        MSE_KF_dB_avg：Kalman Filter 的平均 MSE（dB）
+        MSE_test_dB_avg：KalmanNet 测试集的平均 MSE（dB）
+        MSE_cv_dB_epoch：验证集 MSE（dB），随 epoch 变化
+        MSE_train_dB_epoch：训练集 MSE（dB），随 epoch 变化
+    '''
     def NNPlot_epochs(self, N_Epochs_plt, MSE_KF_dB_avg,
                       MSE_test_dB_avg, MSE_cv_dB_epoch, MSE_train_dB_epoch):
 
